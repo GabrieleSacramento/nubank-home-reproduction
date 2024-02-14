@@ -1,0 +1,10 @@
+arb-dir: lib/localization
+template-arb-file: app_pt.arb
+output-localization-file: app_localizations.dart
+synthetic-package: false
+output-dir: lib/src/generated
+use-deferred-loading: true
+untranslated-message-file: missing_translations.txt
+format: true
+nullable-getter: false
+required-resource-attributes: true

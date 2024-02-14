@@ -1,0 +1,42 @@
+{
+    "appTitle": "nubank_home_reproduction",
+    "@appTitle": {
+        "description": "Aplicativo que reproduz a tela inicial do Nubank"
+    },
+    "hello": "Olá",
+    "@hello": {
+        "description": "'Hello' text"
+    },
+    "pixArea": "Área Pix",
+    "@pixArea": {
+        "description": "'Pix Area' text"
+    },
+    "account": "Conta",
+    "@account": {
+        "description": "'Account' text"
+    }, 
+    "pay": "Pagar",
+    "@pay": {
+        "description": "'Pay' text"
+    },
+    "transfer": "Transferir",
+    "@transfer": {
+        "description": "'Transfer' text"
+    },
+    "deposit": "Depositar",
+    "@deposit": {
+        "description": "'Deposit' text"
+    },
+    "getALoan": "Pegar empréstimo",
+    "@getALoan": {
+        "description": "'Get a loan' text"
+    },
+    "charge": "Cobrar",
+    "@charge": {
+        "description": "'Cobrar' text"
+    },
+    "cellPhoneRecharge": "Recarga de celular",
+    "@cellPhoneRecharge": {
+        "description": "'Cell phone recharge' text"
+    }
+}
