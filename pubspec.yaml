@@ -7,6 +7,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_svg: ^2.0.9
   flutter_localizations:
     sdk: flutter
 
@@ -38,6 +39,7 @@ flutter:
   uses-material-design: true
   generate: true
   assets:
+    - assets/icons/
     - assets/
   fonts:
     - family: Poppins

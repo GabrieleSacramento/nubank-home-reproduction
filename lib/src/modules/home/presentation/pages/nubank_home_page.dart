@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:nubank_home_reproduction/nubank_theme/nubank_icons/nubank_icons.dart';
 import 'package:nubank_home_reproduction/src/utils/localizations.dart';
 import 'package:nubank_home_reproduction/nubank_theme/nubank_colors/nubank_colors.dart';
 import 'package:nubank_home_reproduction/nubank_theme/nubank_font_style/nubank_font_style.dart';
@@ -36,37 +38,93 @@ class _NuTransactionCarousel extends StatelessWidget {
         items: [
           _NuTransactionOption(
             title: strings.pixArea,
-            icon: Icons.pix_outlined,
+            icon: ColorFiltered(
+              colorFilter: ColorFilter.mode(
+                NubankColors.nuBlack,
+                BlendMode.srcIn,
+              ),
+              child: SvgPicture.asset(
+                NubankIcons.pix,
+              ),
+            ),
             onTap: () {},
           ),
           _NuTransactionOption(
             title: strings.pay,
-            icon: Icons.qr_code_2_outlined,
+            icon: ColorFiltered(
+              colorFilter: ColorFilter.mode(
+                NubankColors.nuBlack,
+                BlendMode.srcIn,
+              ),
+              child: SvgPicture.asset(
+                NubankIcons.pay,
+              ),
+            ),
             onTap: () {},
           ),
           _NuTransactionOption(
             title: strings.transfer,
-            icon: Icons.upload,
+            icon: ColorFiltered(
+              colorFilter: ColorFilter.mode(
+                NubankColors.nuBlack,
+                BlendMode.srcIn,
+              ),
+              child: SvgPicture.asset(
+                NubankIcons.transfer,
+              ),
+            ),
             onTap: () {},
           ),
           _NuTransactionOption(
             title: strings.deposit,
-            icon: Icons.download,
+            icon: ColorFiltered(
+              colorFilter: ColorFilter.mode(
+                NubankColors.nuBlack,
+                BlendMode.srcIn,
+              ),
+              child: SvgPicture.asset(
+                NubankIcons.deposit,
+              ),
+            ),
             onTap: () {},
           ),
           _NuTransactionOption(
             title: strings.cellPhoneRecharge,
-            icon: Icons.phone_android_outlined,
+            icon: ColorFiltered(
+              colorFilter: ColorFilter.mode(
+                NubankColors.nuBlack,
+                BlendMode.srcIn,
+              ),
+              child: SvgPicture.asset(
+                NubankIcons.phone,
+              ),
+            ),
             onTap: () {},
           ),
           _NuTransactionOption(
             title: strings.getALoan,
-            icon: Icons.monetization_on,
+            icon: ColorFiltered(
+              colorFilter: ColorFilter.mode(
+                NubankColors.nuBlack,
+                BlendMode.srcIn,
+              ),
+              child: SvgPicture.asset(
+                NubankIcons.money,
+              ),
+            ),
             onTap: () {},
           ),
           _NuTransactionOption(
             title: strings.charge,
-            icon: Icons.money,
+            icon: ColorFiltered(
+              colorFilter: ColorFilter.mode(
+                NubankColors.nuBlack,
+                BlendMode.srcIn,
+              ),
+              child: SvgPicture.asset(
+                NubankIcons.card,
+              ),
+            ),
             onTap: () {},
           ),
         ],
@@ -84,7 +142,7 @@ class _NuTransactionCarousel extends StatelessWidget {
 }
 
 class _NuTransactionOption extends StatelessWidget {
-  final IconData icon;
+  final ColorFiltered icon;
   final String title;
   final VoidCallback onTap;
   const _NuTransactionOption({
@@ -100,17 +158,14 @@ class _NuTransactionOption extends StatelessWidget {
       child: Column(
         children: [
           Container(
+            padding: EdgeInsets.all(NubankSpacing.sp24),
             decoration: BoxDecoration(
               color: NubankColors.nuGrey,
               borderRadius: BorderRadius.circular(NubankSpacing.sp50),
             ),
             width: NubankSpacing.sp72,
             height: NubankSpacing.sp72,
-            child: Icon(
-              icon,
-              color: NubankColors.nuBlack,
-              size: NubankSpacing.sp24,
-            ),
+            child: icon,
           ),
           Padding(
             padding: const EdgeInsets.only(top: NubankSpacing.sp10),
@@ -174,16 +229,18 @@ class _NuAppBar extends StatelessWidget implements PreferredSizeWidget {
           backgroundColor: NubankColors.nuPurple,
           expandedHeight: _appBarHeight,
           title: Container(
+            padding: EdgeInsets.only(
+              left: NubankSpacing.sp10,
+              right: NubankSpacing.sp10,
+            ),
             decoration: BoxDecoration(
               color: NubankColors.nuLightLight,
               borderRadius: BorderRadius.circular(NubankSpacing.sp24),
             ),
             width: NubankSpacing.sp46,
             height: NubankSpacing.sp46,
-            child: Icon(
-              Icons.person,
-              color: NubankColors.nuWhite,
-              size: NubankSpacing.sp24,
+            child: SvgPicture.asset(
+              NubankIcons.profile,
             ),
           ),
           titleSpacing: NubankSpacing.sp24,
@@ -191,36 +248,39 @@ class _NuAppBar extends StatelessWidget implements PreferredSizeWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Icon(
-                  Icons.visibility_outlined,
-                  color: NubankColors.nuWhite,
-                  size: NubankSpacing.sp24,
+                SvgPicture.asset(
+                  NubankIcons.eye,
+                  width: NubankSpacing.sp24,
+                  height: NubankSpacing.sp24,
                 ),
                 Padding(
                   padding: const EdgeInsets.only(
                       left: NubankSpacing.sp24, right: NubankSpacing.sp24),
                   child: Stack(
                     children: <Widget>[
-                      Icon(
-                        Icons.person_outlined,
-                        color: NubankColors.nuWhite,
+                      SvgPicture.asset(
+                        NubankIcons.message,
+                        width: NubankSpacing.sp24,
+                        height: NubankSpacing.sp24,
                       ),
                       Positioned(
                         right: 0,
                         bottom: -3,
-                        child: Icon(Icons.message,
-                            size: NubankSpacing.sp10,
-                            color: NubankColors.nuWhite),
+                        child: Icon(
+                          Icons.message,
+                          size: NubankSpacing.sp10,
+                          color: NubankColors.nuWhite,
+                        ),
                       ),
                     ],
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(right: NubankSpacing.sp24),
-                  child: Icon(
-                    Icons.help_outline,
-                    color: NubankColors.nuWhite,
-                    size: NubankSpacing.sp24,
+                  child: SvgPicture.asset(
+                    NubankIcons.help,
+                    width: NubankSpacing.sp24,
+                    height: NubankSpacing.sp24,
                   ),
                 ),
               ],
