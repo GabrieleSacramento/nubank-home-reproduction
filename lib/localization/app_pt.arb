@@ -38,5 +38,29 @@
     "cellPhoneRecharge": "Recarga de celular",
     "@cellPhoneRecharge": {
         "description": "'Cell phone recharge' text"
+    },
+    "myCards": "Meus cartões",
+    "@myCards": {
+        "description": "'My cards' text"
+    },
+    "creditCard": "Cartão de Crédito",
+    "@creditCard": {
+        "description": "'Credit card' text"
+    },
+    "requestCard": "Pedir Cartão",
+    "@requestCard": {
+        "description": "'Request Card' text"
+    },
+    "creditCardDescription": "Peca seu cartão de crédito sem anuidade e tenha mais controle da sua vida financeira.",
+    "@creditCardDescription": {
+        "description": "'Apply for your credit card with no annual fee and take more control of your financial life.' text"
+    },
+    "discoverMore": "Descubra mais",
+    "@discoverMore": {
+        "description": "'Discover More' text"
+    },
+    "know": "Conhecer",
+    "@know": {
+        "description": "'Know' text"
     }
 }

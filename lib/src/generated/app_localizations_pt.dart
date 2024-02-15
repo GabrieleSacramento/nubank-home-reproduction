@@ -33,4 +33,23 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get cellPhoneRecharge => 'Recarga de celular';
+
+  @override
+  String get myCards => 'Meus cartões';
+
+  @override
+  String get creditCard => 'Cartão de Crédito';
+
+  @override
+  String get requestCard => 'Pedir Cartão';
+
+  @override
+  String get creditCardDescription =>
+      'Peca seu cartão de crédito sem anuidade e tenha mais controle da sua vida financeira.';
+
+  @override
+  String get discoverMore => 'Descubra mais';
+
+  @override
+  String get know => 'Conhecer';
 }

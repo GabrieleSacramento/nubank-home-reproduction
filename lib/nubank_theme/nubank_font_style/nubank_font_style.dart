@@ -47,25 +47,25 @@ class NubankFontStyle {
 
   const NubankFontStyle.bodyMediumShort()
       : this.fontSize = 14,
-        this.fontWeight = FontWeight.w700,
+        this.fontWeight = FontWeight.w600,
         this.color = NubankColorsEnum.nuBlack,
         this.fontFamily = NubankFonts.robotoMedium;
 
   const NubankFontStyle.auxiliarMedium()
       : this.fontSize = 14,
         this.color = NubankColorsEnum.nuBlack,
-        this.fontWeight = FontWeight.w700,
+        this.fontWeight = FontWeight.w400,
         this.fontFamily = NubankFonts.robotoRegular;
 
   const NubankFontStyle.auxiliarMediumNuPurple()
       : this.fontSize = 14,
-        this.fontWeight = FontWeight.w700,
+        this.fontWeight = FontWeight.w400,
         this.color = NubankColorsEnum.nuPurple,
         this.fontFamily = NubankFonts.robotoRegular;
 
   const NubankFontStyle.auxiliarMediumLight()
       : this.fontSize = 14,
-        this.fontWeight = FontWeight.w700,
+        this.fontWeight = FontWeight.w400,
         this.color = NubankColorsEnum.nuLightGrey,
         this.fontFamily = NubankFonts.robotoRegular;
 

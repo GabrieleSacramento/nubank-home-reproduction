@@ -150,6 +150,42 @@ abstract class AppLocalizations {
   /// In pt, this message translates to:
   /// **'Recarga de celular'**
   String get cellPhoneRecharge;
+
+  /// 'My cards' text
+  ///
+  /// In pt, this message translates to:
+  /// **'Meus cartões'**
+  String get myCards;
+
+  /// 'Credit card' text
+  ///
+  /// In pt, this message translates to:
+  /// **'Cartão de Crédito'**
+  String get creditCard;
+
+  /// 'Request Card' text
+  ///
+  /// In pt, this message translates to:
+  /// **'Pedir Cartão'**
+  String get requestCard;
+
+  /// 'Apply for your credit card with no annual fee and take more control of your financial life.' text
+  ///
+  /// In pt, this message translates to:
+  /// **'Peca seu cartão de crédito sem anuidade e tenha mais controle da sua vida financeira.'**
+  String get creditCardDescription;
+
+  /// 'Discover More' text
+  ///
+  /// In pt, this message translates to:
+  /// **'Descubra mais'**
+  String get discoverMore;
+
+  /// 'Know' text
+  ///
+  /// In pt, this message translates to:
+  /// **'Conhecer'**
+  String get know;
 }
 
 class _AppLocalizationsDelegate
