@@ -93,6 +93,8 @@ class NubankSpacing {
 
   static const double sp128 = 128;
 
+  static const double sp218 = 218;
+
   static const double sp236 = 236;
 
   static const double sp254 = 254;

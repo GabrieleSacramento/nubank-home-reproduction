@@ -1,7 +1,8 @@
 class NubankIcons {
   static const String card = 'assets/icons/card.svg';
   static const String deposit = 'assets/icons/deposit.svg';
-  static const String eye = 'assets/icons/eye.svg';
+  static const String closedEye = 'assets/icons/closedEye.svg';
+  static const String openEye = 'assets/icons/openEye.svg';
   static const String help = 'assets/icons/help.svg';
   static const String internet = 'assets/icons/internet.svg';
   static const String message = 'assets/icons/message.svg';

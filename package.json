@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "nubank": "^1.1.3"
+  }
+}

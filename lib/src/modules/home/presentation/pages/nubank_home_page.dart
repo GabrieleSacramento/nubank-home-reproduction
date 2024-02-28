@@ -8,18 +8,46 @@ import 'package:nubank_home_reproduction/nubank_theme/nubank_font_style/nubank_t
 import 'package:nubank_home_reproduction/nubank_theme/nunbank_spacing/nubank_spacing.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
-class NubankHomePage extends StatelessWidget {
+class NubankHomePage extends StatefulWidget {
   const NubankHomePage({super.key});
 
+  @override
+  State<NubankHomePage> createState() => _NubankHomePageState();
+}
+
+final ValueNotifier<bool> isBalanceVisible = ValueNotifier<bool>(true);
+
+class _NubankHomePageState extends State<NubankHomePage> {
   @override
   Widget build(BuildContext context) {
     final strings = context.strings;
     return Scaffold(
-      appBar: _NuAppBar(),
+      appBar: _NuAppBar(
+        balanceVisibleOnTap: () {
+          isBalanceVisible.value = !isBalanceVisible.value;
+          setState(() {});
+        },
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            _NuBalanceWidget(),
+            _NuBalanceWidget(
+              balance: isBalanceVisible.value
+                  ? NubankText(
+                      'R\$ 50,00',
+                      textStyle: NubankFontStyle.bodyLargerShort(),
+                    )
+                  : Padding(
+                      padding:
+                          const EdgeInsets.only(right: NubankSpacing.sp100),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: NubankColors.nuGrey,
+                        ),
+                        height: NubankSpacing.sp32,
+                      ),
+                    ),
+            ),
             _NuTransactionsOptionsCarousel(),
             _NuMyCardsWidget(),
             _NuFinancialServicesCarousel(),
@@ -654,7 +682,8 @@ class _NuTransactionOption extends StatelessWidget {
 }
 
 class _NuBalanceWidget extends StatelessWidget {
-  const _NuBalanceWidget();
+  final Widget balance;
+  const _NuBalanceWidget({required this.balance});
 
   @override
   Widget build(BuildContext context) {
@@ -665,28 +694,31 @@ class _NuBalanceWidget extends StatelessWidget {
         top: NubankSpacing.sp16,
         right: NubankSpacing.sp24,
       ),
-      title: NubankText(
-        strings.account,
-        textStyle: NubankFontStyle.bodyLargerShort(),
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          NubankText(
+            strings.account,
+            textStyle: NubankFontStyle.bodyLargerShort(),
+          ),
+          Icon(
+            Icons.keyboard_arrow_right,
+            color: NubankColors.nuLightGrey,
+            size: NubankSpacing.sp24,
+          ),
+        ],
       ),
       subtitle: Padding(
         padding: const EdgeInsets.only(top: NubankSpacing.sp8),
-        child: NubankText(
-          'R\$ 50,00',
-          textStyle: NubankFontStyle.bodyLargerShort(),
-        ),
-      ),
-      trailing: Icon(
-        Icons.keyboard_arrow_right,
-        color: NubankColors.nuLightGrey,
-        size: NubankSpacing.sp24,
+        child: balance,
       ),
     );
   }
 }
 
 class _NuAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const _NuAppBar();
+  final Function() balanceVisibleOnTap;
+  const _NuAppBar({required this.balanceVisibleOnTap});
 
   Size get preferredSize => Size.fromHeight(_appBarHeight);
   static const double _appBarHeight = NubankSpacing.sp124;
@@ -720,10 +752,15 @@ class _NuAppBar extends StatelessWidget implements PreferredSizeWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                SvgPicture.asset(
-                  NubankIcons.eye,
-                  width: NubankSpacing.sp24,
-                  height: NubankSpacing.sp24,
+                GestureDetector(
+                  onTap: balanceVisibleOnTap,
+                  child: SvgPicture.asset(
+                    isBalanceVisible.value
+                        ? NubankIcons.openEye
+                        : NubankIcons.closedEye,
+                    width: NubankSpacing.sp24,
+                    height: NubankSpacing.sp24,
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(
