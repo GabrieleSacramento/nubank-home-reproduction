@@ -1,6 +1,6 @@
 import 'package:nubank_home_reproduction/src/shared/entities/user_message_entity.dart';
 
-class BalanceErrorEntity {
+class DiscoverMoreErrorEntity {
   final bool success;
   final String code;
   final String errorId;
@@ -8,7 +8,7 @@ class BalanceErrorEntity {
   final String detail;
   final UserMessageEntity userMessage;
 
-  BalanceErrorEntity({
+  DiscoverMoreErrorEntity({
     required this.success,
     required this.code,
     required this.errorId,
@@ -18,7 +18,7 @@ class BalanceErrorEntity {
   });
 
   @override
-  bool operator ==(covariant BalanceErrorEntity other) {
+  bool operator ==(covariant DiscoverMoreErrorEntity other) {
     if (identical(this, other)) return true;
 
     return other.success == success &&
