@@ -3,8 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:nubank_home_reproduction/nubank_theme/nubank_icons/nubank_icons.dart';
 import 'package:nubank_home_reproduction/src/modules/home/cubits/get_balance_cubit.dart';
+import 'package:nubank_home_reproduction/src/modules/my_cards/presentation/widgets/balance_shimmer.dart';
+import 'package:nubank_home_reproduction/src/modules/my_cards/presentation/widgets/my_cards_widget.dart';
 import 'package:nubank_home_reproduction/src/setup/setup.dart';
 import 'package:nubank_home_reproduction/src/shared/formatters/formatters.dart';
+import 'package:nubank_home_reproduction/src/shared/widgets/base_bottom_sheet.dart';
 import 'package:nubank_home_reproduction/src/utils/localizations.dart';
 import 'package:nubank_home_reproduction/nubank_theme/nubank_colors/nubank_colors.dart';
 import 'package:nubank_home_reproduction/nubank_theme/nubank_font_style/nubank_font_style.dart';
@@ -40,7 +43,7 @@ class _NubankHomePageState extends State<NubankHomePage> {
               BlocBuilder<GetBalanceCubit, GetBalanceState>(
                 builder: (context, state) {
                   if (state is GetBalanceLoading) {
-                    return CircularProgressIndicator();
+                    return NuBalanceShimmerWidget();
                   }
 
                   if (state is GetBalanceSuccess) {
@@ -50,15 +53,9 @@ class _NubankHomePageState extends State<NubankHomePage> {
                               '${state.balance.availableAmount.toCurrency()}',
                               textStyle: NubankFontStyle.bodyLargerShort(),
                             )
-                          : Padding(
-                              padding: const EdgeInsets.only(
-                                  right: NubankSpacing.sp100),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: NubankColors.nuGrey,
-                                ),
-                                height: NubankSpacing.sp32,
-                              ),
+                          : NubankText(
+                              '....',
+                              textStyle: NubankFontStyle.bodyLargerStandard(),
                             ),
                     );
                   }
@@ -498,7 +495,12 @@ class _NuMyCardsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final strings = context.strings;
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        BaseBottomSheet.showBottomSheet(
+          context: context,
+          child: MyCardsWidget(),
+        );
+      },
       child: Container(
         margin: EdgeInsets.only(
           left: NubankSpacing.sp24,
@@ -732,27 +734,7 @@ class _NuBalanceWidget extends StatelessWidget {
           ),
         ],
       ),
-      subtitle: Padding(
-        padding: const EdgeInsets.only(top: NubankSpacing.sp8),
-        child: balance,
-      ),
-    );
-  }
-}
-
-class MyContainer extends StatefulWidget {
-  const MyContainer({super.key});
-
-  @override
-  State<MyContainer> createState() => _MyContainerState();
-}
-
-class _MyContainerState extends State<MyContainer> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.red,
-      child: Text('Apenas um container'),
+      subtitle: balance,
     );
   }
 }
