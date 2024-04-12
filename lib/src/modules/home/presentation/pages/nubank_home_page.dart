@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:nubank_home_reproduction/nubank_theme/nubank_icons/nubank_icons.dart';
 import 'package:nubank_home_reproduction/src/modules/home/cubits/get_balance_cubit.dart';
+import 'package:nubank_home_reproduction/src/modules/home/cubits/get_discover_more_list_cubit.dart';
 import 'package:nubank_home_reproduction/src/modules/my_cards/presentation/widgets/balance_shimmer.dart';
 import 'package:nubank_home_reproduction/src/modules/my_cards/presentation/widgets/my_cards_widget.dart';
 import 'package:nubank_home_reproduction/src/setup/setup.dart';
@@ -16,7 +17,9 @@ import 'package:nubank_home_reproduction/nubank_theme/nunbank_spacing/nubank_spa
 import 'package:carousel_slider/carousel_slider.dart';
 
 class NubankHomePage extends StatefulWidget {
-  const NubankHomePage({super.key});
+  const NubankHomePage({
+    super.key,
+  });
 
   @override
   State<NubankHomePage> createState() => _NubankHomePageState();
@@ -28,8 +31,16 @@ class _NubankHomePageState extends State<NubankHomePage> {
   @override
   Widget build(BuildContext context) {
     final strings = context.strings;
-    return BlocProvider(
-      create: (context) => setup.get<GetBalanceCubit>()..getBalance(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => setup.get<GetBalanceCubit>()..getBalance(),
+        ),
+        BlocProvider(
+          create: (context) =>
+              setup.get<GetDiscoverMoreListCubit>()..getDiscoverMoreList(),
+        ),
+      ],
       child: Scaffold(
         appBar: _NuAppBar(
           balanceVisibleOnTap: () {
@@ -84,44 +95,38 @@ class _NubankHomePageState extends State<NubankHomePage> {
                   ),
                 ),
               ),
-              _NuDiscoverMoreCarousel(),
+              BlocBuilder<GetDiscoverMoreListCubit, GetDiscoverMoreListState>(
+                builder: (context, state) {
+                  if (state is GetDiscoverMoreListLoading) {
+                    return const CircularProgressIndicator();
+                  } else if (state is GetDiscoverMoreListSuccess) {
+                    return CarouselSlider(
+                      items: state.discoverMoreList
+                          .map<Widget>(
+                            (e) => _NuDiscoverMoreWidget(
+                              image: e.discoverImage,
+                              title: e.discoverTitle,
+                              subtitle: e.discoverDescription,
+                              onTap: () {},
+                            ),
+                          )
+                          .toList(),
+                      options: CarouselOptions(
+                        scrollPhysics: BouncingScrollPhysics(),
+                        enlargeStrategy: CenterPageEnlargeStrategy.height,
+                        viewportFraction: 0.7,
+                        padEnds: false,
+                        aspectRatio: 50 / 50,
+                        enableInfiniteScroll: false,
+                      ),
+                    );
+                  }
+                  return SizedBox.fromSize();
+                },
+              ),
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class _NuDiscoverMoreCarousel extends StatelessWidget {
-  const _NuDiscoverMoreCarousel();
-
-  @override
-  Widget build(BuildContext context) {
-    return CarouselSlider(
-      items: [
-        _NuDiscoverMoreWidget(
-          image:
-              'https://images.unsplash.com/photo-1616077167599-cad3639f9cbd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-          title: 'Portabilidade de salário',
-          subtitle: 'Sua liberdade financeira comeca com você escolhendo...',
-          onTap: () {},
-        ),
-        _NuDiscoverMoreWidget(
-          image:
-              'https://images.unsplash.com/photo-1616077167599-cad3639f9cbd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-          title: 'Portabilidade de salário',
-          subtitle: 'Sua liberdade financeira comeca com você escolhendo...',
-          onTap: () {},
-        ),
-      ],
-      options: CarouselOptions(
-        scrollPhysics: BouncingScrollPhysics(),
-        enlargeStrategy: CenterPageEnlargeStrategy.height,
-        viewportFraction: 0.7,
-        padEnds: false,
-        aspectRatio: 50 / 50,
-        enableInfiniteScroll: false,
       ),
     );
   }
@@ -181,6 +186,7 @@ class _NuDiscoverMoreWidget extends StatelessWidget {
                 padding: const EdgeInsets.only(
                   top: NubankSpacing.sp16,
                   left: NubankSpacing.sp16,
+                  right: NubankSpacing.sp16,
                 ),
                 child: Column(
                   children: [
@@ -188,6 +194,7 @@ class _NuDiscoverMoreWidget extends StatelessWidget {
                       alignment: Alignment.topLeft,
                       child: NubankText(
                         title,
+                        textOverflow: TextOverflow.ellipsis,
                         textStyle: NubankFontStyle.bodyMediumStandard(),
                       ),
                     ),
@@ -197,6 +204,8 @@ class _NuDiscoverMoreWidget extends StatelessWidget {
                       ),
                       child: NubankText(
                         subtitle,
+                        maxLines: 2,
+                        textOverflow: TextOverflow.ellipsis,
                         textStyle: NubankFontStyle.auxiliarMediumLight(),
                       ),
                     ),
