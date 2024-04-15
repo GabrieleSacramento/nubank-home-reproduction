@@ -99,7 +99,8 @@ class _NubankHomePageState extends State<NubankHomePage> {
                 builder: (context, state) {
                   if (state is GetDiscoverMoreListLoading) {
                     return const CircularProgressIndicator();
-                  } else if (state is GetDiscoverMoreListSuccess) {
+                  }
+                  if (state is GetDiscoverMoreListSuccess) {
                     return CarouselSlider(
                       items: state.discoverMoreList
                           .map<Widget>(
@@ -121,6 +122,7 @@ class _NubankHomePageState extends State<NubankHomePage> {
                       ),
                     );
                   }
+                  if (state is GetDiscoverMoreListError) {}
                   return SizedBox.fromSize();
                 },
               ),
