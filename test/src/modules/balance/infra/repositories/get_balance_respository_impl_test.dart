@@ -1,6 +1,6 @@
 import 'package:mocktail/mocktail.dart';
-import 'package:nubank_home_reproduction/src/modules/balance/domain/entities/balance_entity.dart';
-import 'package:nubank_home_reproduction/src/modules/balance/infra/datasources/get_balance_datasource.dart';
+import '../../../../../../example/lib/src/modules/balance/domain/entities/balance_entity.dart';
+import '../../../../../../example/lib/src/modules/balance/infra/datasources/get_balance_datasource.dart';
 import 'package:test/test.dart';
 
 class GetBalanceDatasourceMock extends Mock implements GetBalanceDatasource {}

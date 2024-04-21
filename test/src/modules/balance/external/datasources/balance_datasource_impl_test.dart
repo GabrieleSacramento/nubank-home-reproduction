@@ -1,11 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:nubank_home_reproduction/src/exceptions/exceptions.dart';
-import 'package:nubank_home_reproduction/src/modules/balance/domain/entities/balance_entity.dart';
-import 'package:nubank_home_reproduction/src/modules/balance/domain/entities/balance_error_entity.dart';
-import 'package:nubank_home_reproduction/src/modules/balance/external/datasources/balance_datasource_impl.dart';
-import 'package:nubank_home_reproduction/src/modules/balance/infra/datasources/get_balance_datasource.dart';
-import 'package:nubank_home_reproduction/src/shared/entities/user_message_entity.dart';
+import '../../../../../../example/lib/src/exceptions/exceptions.dart';
+import '../../../../../../example/lib/src/modules/balance/domain/entities/balance_entity.dart';
+import '../../../../../../example/lib/src/modules/balance/domain/entities/balance_error_entity.dart';
+import '../../../../../../example/lib/src/modules/balance/external/datasources/balance_datasource_impl.dart';
+import '../../../../../../example/lib/src/modules/balance/infra/datasources/get_balance_datasource.dart';
+import '../../../../../../example/lib/src/shared/entities/user_message_entity.dart';
 import 'package:test/test.dart';
 
 import '../../../../../fixtures/balance_fixture.dart';

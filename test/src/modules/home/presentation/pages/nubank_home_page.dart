@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:nubank_home_reproduction/nubank_theme/nubank_icons/nubank_icons.dart';
-import 'package:nubank_home_reproduction/src/modules/home/cubits/get_balance_cubit.dart';
-import 'package:nubank_home_reproduction/src/setup/setup.dart';
-import 'package:nubank_home_reproduction/src/shared/formatters/formatters.dart';
-import 'package:nubank_home_reproduction/src/utils/localizations.dart';
-import 'package:nubank_home_reproduction/nubank_theme/nubank_colors/nubank_colors.dart';
-import 'package:nubank_home_reproduction/nubank_theme/nubank_font_style/nubank_font_style.dart';
-import 'package:nubank_home_reproduction/nubank_theme/nubank_font_style/nubank_text_style.dart';
-import 'package:nubank_home_reproduction/nubank_theme/nunbank_spacing/nubank_spacing.dart';
+import 'package:nubank_home_reproduction/src/atoms/assets/nubank_icons.dart';
+import '../../../../../../example/lib/src/modules/home/cubits/get_balance_cubit.dart';
+import '../../../../../../example/lib/src/setup/setup.dart';
+import '../../../../../../example/lib/src/shared/formatters/formatters.dart';
+import '../../../../../../example/lib/src/utils/localizations.dart';
+import 'package:nubank_home_reproduction/src/tokens/colors/nubank_colors.dart';
+import 'package:nubank_home_reproduction/src/tokens/texts/nubank_font_style.dart';
+import 'package:nubank_home_reproduction/src/atoms/text/nubank_text_style.dart';
+import 'package:nubank_home_reproduction/src/tokens/size/nubank_spacing.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 class NubankHomePage extends StatefulWidget {

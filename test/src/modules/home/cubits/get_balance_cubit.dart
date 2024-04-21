@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:nubank_home_reproduction/src/exceptions/exceptions.dart';
-import 'package:nubank_home_reproduction/src/modules/balance/domain/entities/balance_entity.dart';
-import 'package:nubank_home_reproduction/src/modules/balance/domain/entities/balance_error_entity.dart';
-import 'package:nubank_home_reproduction/src/modules/balance/domain/use_cases/get_balance_use_case.dart';
+import '../../../../../example/lib/src/exceptions/exceptions.dart';
+import '../../../../../example/lib/src/modules/balance/domain/entities/balance_entity.dart';
+import '../../../../../example/lib/src/modules/balance/domain/entities/balance_error_entity.dart';
+import '../../../../../example/lib/src/modules/balance/domain/use_cases/get_balance_use_case.dart';
 
 part 'get_balance_state.dart';
 

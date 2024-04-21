@@ -1,5 +1,5 @@
-import 'package:nubank_home_reproduction/src/modules/balance/data/mappers/balance_mapper.dart';
-import 'package:nubank_home_reproduction/src/modules/balance/domain/entities/balance_entity.dart';
+import '../../example/lib/src/modules/balance/data/mappers/balance_mapper.dart';
+import '../../example/lib/src/modules/balance/domain/entities/balance_entity.dart';
 
 Map<String, dynamic> balanceMock = {
   "success": "true",
