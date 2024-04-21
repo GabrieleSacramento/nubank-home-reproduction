@@ -1,7 +1,7 @@
 import 'package:mocktail/mocktail.dart';
-import 'package:nubank_home_reproduction/src/modules/balance/domain/entities/balance_entity.dart';
-import 'package:nubank_home_reproduction/src/modules/balance/domain/repositories/get_balance_repository.dart';
-import 'package:nubank_home_reproduction/src/modules/balance/infra/use_cases/get_balance_use_case_impl.dart';
+import '../../../../../../example/lib/src/modules/balance/domain/entities/balance_entity.dart';
+import '../../../../../../example/lib/src/modules/balance/domain/repositories/get_balance_repository.dart';
+import '../../../../../../example/lib/src/modules/balance/infra/use_cases/get_balance_use_case_impl.dart';
 import 'package:test/test.dart';
 
 class BalanceRepositoryMock extends Mock implements GetBalanceRepository {}

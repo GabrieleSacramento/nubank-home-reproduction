@@ -1,5 +1,5 @@
-import 'package:nubank_home_reproduction/src/modules/balance/domain/entities/balance_error_entity.dart';
-import 'package:nubank_home_reproduction/src/shared/entities/user_message_entity.dart';
+import '../../../../../../example/lib/src/modules/balance/domain/entities/balance_error_entity.dart';
+import '../../../../../../example/lib/src/shared/entities/user_message_entity.dart';
 
 import 'package:test/test.dart';
 

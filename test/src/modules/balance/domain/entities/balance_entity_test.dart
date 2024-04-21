@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:nubank_home_reproduction/src/modules/balance/data/mappers/balance_mapper.dart';
+import '../../../../../../example/lib/src/modules/balance/data/mappers/balance_mapper.dart';
 
 import 'package:test/test.dart';
 
